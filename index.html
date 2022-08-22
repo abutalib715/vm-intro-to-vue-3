@@ -24,6 +24,14 @@
             <p v-else-if="inventory <= 10">Almost out of Stock</p>
             <p v-else>Out of Stock</p>
             <p v-if="onSale">On Sale</p>
+            <ul>
+              <li v-for="detail in details" :key="product_inventory">{{ detail }}</li>
+            </ul>
+
+            <ul>
+              <li v-for="size in sizes" :key="size">{{ detail }}</li>
+            </ul>
+          
           </div>
         </div>
       </div>
