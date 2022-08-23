@@ -5,7 +5,7 @@ const app = Vue.createApp({
             description: 'Product short description for test',
             image: './assets/images/socks_green.jpg',
             url: 'http://google.com',
-            inStock: false,
+            inStock: true,
             inventory: 8,
             onSale: true,
             details: [
