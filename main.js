@@ -2,18 +2,17 @@ const app = Vue.createApp({
     data() {
         return {
             product: 'Boots',
+            brand: 'Apex',
             description: 'Product short description for test',
-            image: './assets/images/socks_green.jpg',
+            selectedVariant: 0,
             url: 'http://google.com',
-            inStock: true,
             inventory: 8,
-            onSale: true,
             details: [
                 '50% cotton','20% wool', '30% silk'
             ],
             variants: [
-                {id: 2233, color:'green', image: './assets/images/socks_green.jpg'},
-                {id: 2234, color:'blue', image: './assets/images/socks_blue.jpg'}
+                {id: 2233, color:'green', image: './assets/images/socks_green.jpg', quantity: 50, onSale: true},
+                {id: 2234, color:'blue', image: './assets/images/socks_blue.jpg', quantity: 0, onSale: false}
             ],
             sizes: [30,32,34,36,41,40],
             cart: 0
@@ -28,8 +27,22 @@ const app = Vue.createApp({
             if(this.cart > 0)
                 this.cart--
         },
-        updateImage(image){
-            this.image = image
+        updateVariant(index){
+            this.selectedVariant = index
+        }
+    },
+    computed: {
+        title(){
+            return this.product + ' - ' + this.brand
+        },
+        image(){
+            return this.variants[this.selectedVariant].image
+        },
+        inStock(){
+            return this.variants[this.selectedVariant].quantity
+        },
+        onSale(){
+            return this.variants[this.selectedVariant].onSale
         }
     }
 })
