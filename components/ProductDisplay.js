@@ -5,7 +5,7 @@ app.component('product-display', {
             required: true
         },
         cart_length:{
-            type:Array,
+            type:Number,
             required:true
         }
     },
@@ -40,25 +40,25 @@ app.component('product-display', {
             
             </div>
         </div>
+        <review-list v-if="reviews.length" :reviews="reviews"></review-list>
+        <review-form @review-submitted="addReview"></review-form>
     </div>`,
-  data() {
-    return {
-        product: 'Boots',
-        brand: 'Apex',
-        description: 'Product short description for test',
-        selectedVariant: 0,
-        url: 'http://google.com',
-        inventory: 8,
-        details: [
-            '50% cotton','20% wool', '30% silk'
-        ],
-        variants: [
-            {id: 2233, color:'green', image: './assets/images/socks_green.jpg', quantity: 50, onSale: true},
-            {id: 2234, color:'blue', image: './assets/images/socks_blue.jpg', quantity: 0, onSale: false}
-        ],
-        sizes: [30,32,34,36,41,40],
-        cart: 0
-
+    data() {
+        return {
+            product: 'Socks',
+            brand: 'Apex',
+            selectedVariant: 0,
+            inventory: 8,
+            details: [
+                '50% cotton','20% wool', '30% silk'
+            ],
+            variants: [
+                {id: 2233, color:'green', image: './assets/images/socks_green.jpg', quantity: 50, onSale: true},
+                {id: 2234, color:'blue', image: './assets/images/socks_blue.jpg', quantity: 0, onSale: false}
+            ],
+            sizes: [30,32,34,36,41,40],
+            cart: 0,
+            reviews: []
         }
     },
     methods: {
@@ -70,6 +70,10 @@ app.component('product-display', {
         },
         updateVariant(index){
             this.selectedVariant = index
+        },
+        addReview(review){
+            this.reviews.push(review)
+            console.log(this.reviews)
         }
     },
     computed: {

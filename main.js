@@ -2,7 +2,9 @@ const app = Vue.createApp({
     data() {
         return {
             cart: [],
-            isPremium: true
+            isPremium: true,
+            description: 'Product short description for test',
+            url: 'http://google.com',
         }
     },
     methods: {
@@ -11,6 +13,6 @@ const app = Vue.createApp({
         },
         removeFromCart(){
             this.cart.shift()
-        }
+        },
     }
 })

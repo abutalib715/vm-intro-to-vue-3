@@ -20,10 +20,11 @@
         @add-to-cart="updateCart"
         @remove-from-cart="removeFromCart">
       </product-display>
-      <p>I love {{ product }}</p>
+      
       <p>{{ description }}</p>
       <a :href="url">Product link</a>
     </div>
+
 
     <!-- Import Js -->
     <script src="./main.js"></script> 
@@ -31,6 +32,8 @@
     <!-- Import Product Component -->
     <script src="./components/ProductDisplay.js"></script> 
     <script src="./components/ProductDetails.js"></script> 
+    <script src="./components/ReviewForm.js"></script> 
+    <script src="./components/ReviewList.js"></script> 
 
     <!-- Mounted App -->
     <script>  
